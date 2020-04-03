@@ -1,0 +1,17 @@
+implicit cursor
+
+
+
+% found
+
+true dml successull
+false dml unsuccessfull
+
+
+%notfound
+
+true dml mot successfull
+false dml successfull
+
+% rowcount
+return no of row affected by dml statement

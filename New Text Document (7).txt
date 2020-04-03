@@ -1,0 +1,27 @@
+import cx_Oracle
+dsn_tns=cx_Oracle.makedsn('127.0.0.1','8080',service_name='SYS$USERS')
+conn=cx_Oracle.connect('system','tiger',dsn=dsn_tns)
+c=conn.cursor()
+c.execute('select * from database.student123')
+for row in c:
+    print(row[0])
+
+
+
+
+import cx_Oracle as cxo
+conn = cxo.connect("system", "tiger", "127.0.0.1:8080")
+print(conn.version)
+cur = conn.cursor()
+cur.execute('SELECT \'X\' FROM DUAL')
+for result in cur:
+    print(result[0])
+cur.close()
+conn.close()
+
+import mysql.Connector
+mydb=mysql.Connetcor.connect(host='127.0.0.1','8080',usre=" ",passwd=" ",db="test")
+mycurosor=mydb.cursor()
+mycursor.execute('select * from database.student123')
+myresult=mycursor.fetchall()
+print(myresult)

@@ -1,0 +1,43 @@
+declare
+cursor s1 is select deptno,salary from emp;
+sdeptno emp.deptno%type;
+ssalary emp.salary%type;
+begin
+open s1;
+loop
+fetch s1 into sdeptno,ssalary;
+exit when s1%notfound; 
+dbms_output.put_line(sdeptno||''||ssalary);
+end loop;
+close s1;
+end;
+
+
+
+
+declare
+cursor s2 is select ename,salary from emp where deptno=&deptno;
+sname emp.ename%type;
+ssalary emp.salary%type;
+begin
+open s2;
+loop
+fetch s2 into sname,ssalary;
+exit when s2%notfound; 
+dbms_output.put_line(sname||'   '||ssalary);
+dbms_output.put_line(s2%rowcount);
+end loop;
+close s2;
+end;
+
+
+materialzed view
+
+
+create materialized view v1
+as select deptno ,sum(salary) from emp group by  deptno;
+
+
+
+
+s

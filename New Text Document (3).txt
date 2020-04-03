@@ -1,0 +1,10 @@
+create or replace procedure drop_object
+(tn in varchar2,r in number,n in varchar2)
+is
+begin
+execute immediate ' create table '||n (r,n);
+end;
+
+
+
+create table student(roll number,name varchar2)

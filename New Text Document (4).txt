@@ -1,0 +1,24 @@
+create or replace procedure hello( a in number,b in number,c out number)
+is
+begin
+c:=a+b;
+end;
+
+
+
+
+declare 
+cursor ss is select ename,salary from emp;
+vname emp.ename%type;
+vsal emp.salary%type;
+begin
+open ss;
+loop
+fetch ss into vname,vsal;
+exit when ss%notfound;
+dbms_output.put_line(vname||''||vsal);
+end loop;
+close ss;
+end;
+
+
